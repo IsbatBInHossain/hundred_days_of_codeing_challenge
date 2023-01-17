@@ -1,0 +1,26 @@
+def turn_right():
+    turn_left()
+    turn_left()
+    turn_left()
+
+c = 0
+while not at_goal():
+    if right_is_clear():
+        turn_right()
+        move()
+        if c==8:
+            turn_left()
+        elif c>=4:
+            if front_is_clear():
+                move()
+            else:
+                turn_right()
+                move()
+        c+=1
+         
+    elif front_is_clear():
+        move()
+        c = 0
+    else:
+        turn_left()
+        c = 0
